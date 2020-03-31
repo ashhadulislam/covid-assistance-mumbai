@@ -157,7 +157,7 @@ def completedmumbai():
     list_requests=get_requests(sheetname="Details_People_Mumbai",need_status="Completed")
     print("requests are ",list_requests)
 
-    return render_template("completed.html", items=list_requests)
+    return render_template("completedmumbai.html", items=list_requests)
 
 
 
@@ -394,7 +394,7 @@ def complete_payment_mumbai():
 if __name__ == "__main__":
 
 
-    application.run(host="0.0.0.0")
+    application.run(host="0.0.0.0", debug=True)
 
 
 
