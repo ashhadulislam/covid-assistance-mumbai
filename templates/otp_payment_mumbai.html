@@ -48,14 +48,17 @@
 			  	<th>Request ID</th>
 			    <th>Name</th>
 			    <th>Contact Number</th>			    			    
-			    <th>Requestor State</th>
-			    <th>Requestor District</th>
+			    <th>City</th>
 			    <th>Address</th>
+			    <th>Locality</th>
+			    <th>Landmark</th>
 			    <th>Request Status</th>
-			    <th>Family Size</th>			    
+			    <th>Number Of Needy</th>			    
+			    <th>Request Type</th>			    
 			    <th>Volunteer Name</th>
 			    <th>Volunteer Number</th>
 			    <th>Date Of Entry</th>
+			    
 			    <!-- <th>Place Order</th> -->
 			  <!-- </tr> -->
 			  
@@ -66,12 +69,13 @@
 			  		name={{item.request_id}} value={{item.request_id}} readonly></td>
 			  	<td>{{item.name}}</td>
 			  	<td>{{item.contact_num}}</td>		
-			  	<td>{{item.requestor_state}}</td>
-			  	<td>{{item.requestor_district}}</td>	  	
+			  	<td>{{item.city}}</td>
 			  	<td>{{item.requestor_address}}</td>
+			  	<td>{{item.locality}}</td>
+			  	<td>{{item.landmark}}</td>					  	
 			  	<td>{{item.request_status}}</td>
-			  	
-			  	<td>{{item.family_size}}</td>			  	
+			  	<td>{{item.num_needy}}</td>
+			  	<td>{{item.type_help}}</td>
 			  	<td>{{item.volunteer_name}}</td>
 			  	<td>{{item.vol_contact_num}}</td>
 			  	<td>{{item.date_of_entry}}</td>
@@ -89,8 +93,19 @@
 					<div class ="row"> <label>Contributor Nam:</label> </deiv>
 					 
 			      	<div class = "row"><input type="text" class="form-control" id="contrib_name" name="contrib_name" value="{{items.contrib_name}}" style="width:50%;" readonly></div>
+			    </div>	
+
+
+			    <div class="form-group" >
+					<div class ="row"> <label>Type Of Entity:</label> </div>
+					 
+			      	<div class = "row"><input type="text" class="form-control" id="contrib_type" name="contrib_type" value="{{items.contrib_type}}" style="width:50%;" readonly></div>
 			    </div>			    
+
+
 			</div>
+
+			
 
 
 

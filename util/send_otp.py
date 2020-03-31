@@ -26,7 +26,7 @@ def send_otp_sms(user_phone):
 	#first store it into sheet
 	
 	# get data from sheet
-	sheetname="OTP_Record"
+	sheetname="OTP_Record_Mumbai"
 	status,sheet=get_sheet(sheetname)
 
 	otp_records=sheet.get_all_values()

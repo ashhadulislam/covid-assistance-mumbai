@@ -75,7 +75,15 @@
 						<div class ="row"> <label>Name:</label> </div>
 							 
 				      	<div class = "row"><input type="text" onfocus="this.value=''" class="form-control" id="contrib_name" placeholder="Contributor Name" name="contrib_name" style="	width:50%;"></div>
-				    </div>			    
+				    </div>	
+
+				    <div class="form-group">
+				      	<label>Are you an NGO or an Individual:</label>
+				      	<select class="form-control" id="contrib_type" name="contrib_type">
+						  <option value="NGO">NGO</option>
+						  <option value="Individual">Individual</option>
+					  	</select>
+		    		</div>		    
 
 
 					<div class="form-group" >
@@ -116,15 +124,19 @@
 					<!-- <div class="container"> -->
 
 						<div style="float:left;">
-							<input type="text" id="myVolunteerInput" onkeyup="myVolunteerFunction()" placeholder="Search by volunteer.." title="Type in a volunteer">
+							<input type="text" id="myAddressInput" onkeyup="myAddressFunction()" placeholder="Search by address/pincode.." title="Type in an address">
 						</div>
 						<div style="float:left;">
-							<input type="text" id="myDistrictInput" onkeyup="myDistrictFunction()" placeholder="Search by district.." title="Type in a district">
+							<input type="text" id="myLocalityInput" onkeyup="myLocalityFunction()" placeholder="Search by locality.." title="Type in a locality">
 						</div>
 
-						<!-- <div style="float:left;">
-							<input type="text" id="myStateInput" onkeyup="myStateFunction()" placeholder="Search for state.." title="Type in a state">
-						</div> -->
+						<div style="float:left;">
+							<input type="text" id="myLandmarkInput" onkeyup="myLandmarkFunction()" placeholder="Search by landmark.." title="Type in a landmark">
+						</div>
+
+						<div style="float:left;">
+							<input type="text" id="myHelpTypeInput" onkeyup="myHelpTypeFunction()" placeholder="Search by meal/ration.." title="Type in meal/ration">
+						</div>
 	
 
 					</div>
@@ -137,11 +149,13 @@
 					  	<th>Request ID</th>
 					    <th>Name</th>
 					    <th>Contact Number</th>			    			    
-					    <th>Requestor State</th>
-					    <th>Requestor District</th>
+					    <th>City</th>
 					    <th>Address</th>
+					    <th>Locality</th>
+					    <th>Landmark</th>
 					    <th>Request Status</th>
-					    <th>Family Size</th>			    
+					    <th>Number Of Needy</th>			    
+					    <th>Request Type</th>			    
 					    <th>Volunteer Name</th>
 					    <th>Volunteer Number</th>
 					    <th>Date Of Entry</th>
@@ -153,12 +167,13 @@
 					  	<td>{{item.request_id}}</td>
 					  	<td>{{item.name}}</td>
 					  	<td>{{item.contact_num}}</td>		
-					  	<td>{{item.requestor_state}}</td>
-					  	<td>{{item.requestor_district}}</td>	  	
+					  	<td>{{item.city}}</td>
 					  	<td>{{item.requestor_address}}</td>
+					  	<td>{{item.locality}}</td>
+					  	<td>{{item.landmark}}</td>					  	
 					  	<td>{{item.request_status}}</td>
-					  	
-					  	<td>{{item.family_size}}</td>			  	
+					  	<td>{{item.num_needy}}</td>
+					  	<td>{{item.type_help}}</td>
 					  	<td>{{item.volunteer_name}}</td>
 					  	<td>{{item.vol_contact_num}}</td>
 					  	<td>{{item.date_of_entry}}</td>
@@ -215,34 +230,16 @@
 		
 
 
+
+
+
        
 
 
-<!-- 	<script>
-		function myStateFunction() {
+	<script>
+		function myAddressFunction() {
 		  var input, filter, table, tr, td, i, txtValue;
-		  input = document.getElementById("myStateInput");
-		  filter = input.value.toUpperCase();
-		  table = document.getElementById("pendingTable");
-		  tr = table.getElementsByTagName("tr");
-		  for (i = 0; i < tr.length; i++) {
-		    td = tr[i].getElementsByTagName("td")[3];
-		    if (td) {
-		      txtValue = td.textContent || td.innerText;
-		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-		        tr[i].style.display = "";
-		      } else {
-		        tr[i].style.display = "none";
-		      }
-		    }       
-		  }
-		}
-		</script>
- -->
-		<script>
-		function myDistrictFunction() {
-		  var input, filter, table, tr, td, i, txtValue;
-		  input = document.getElementById("myDistrictInput");
+		  input = document.getElementById("myAddressInput");
 		  filter = input.value.toUpperCase();
 		  table = document.getElementById("pendingTable");
 		  tr = table.getElementsByTagName("tr");
@@ -261,14 +258,14 @@
 		</script>
 
 		<script>
-		function myVolunteerFunction() {
+		function myLocalityFunction() {
 		  var input, filter, table, tr, td, i, txtValue;
-		  input = document.getElementById("myVolunteerInput");
+		  input = document.getElementById("myLocalityInput");
 		  filter = input.value.toUpperCase();
 		  table = document.getElementById("pendingTable");
 		  tr = table.getElementsByTagName("tr");
 		  for (i = 0; i < tr.length; i++) {
-		    td = tr[i].getElementsByTagName("td")[8];
+		    td = tr[i].getElementsByTagName("td")[5];
 		    if (td) {
 		      txtValue = td.textContent || td.innerText;
 		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -281,6 +278,47 @@
 		}
 		</script>
 
+		<script>
+		function myLandmarkFunction() {
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("myLandmarkInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("pendingTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[6];
+		    if (td) {
+		      txtValue = td.textContent || td.innerText;
+		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }       
+		  }
+		}
+		</script>
+
+		<script>
+		function myHelpTypeFunction() {
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("myHelpTypeInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("pendingTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[9];
+		    if (td) {
+		      txtValue = td.textContent || td.innerText;
+		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }       
+		  }
+		}
+		</script>
 
 
 	</body>
