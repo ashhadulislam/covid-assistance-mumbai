@@ -43,7 +43,7 @@ def convert_list_to_dict(the_request):
     dict_request["request_status"]=the_request[4]
 
     dict_request["family_size"]=the_request[5]
-    
+
     # a gap for beneficiary
     dict_request["volunteer_name"]=the_request[7]
     dict_request["vol_contact_num"]=the_request[8]
@@ -78,14 +78,14 @@ def get_requests(sheetname,need_status):
     list_of_requests=(sheet.get_all_values())
     print("number of rows ",len(sheet.get_all_values()))
     print("number of columns ",len(sheet.get_all_values()[0]))
-    
+
 
     list_requests=[]
-    
+
     # skip the first request since it is heading
     for the_request in list_of_requests[1:]:
         print("status is ",the_request[request_status_index-1],need_status)
-        
+
 
         if the_request[request_status_index-1]==need_status:
 
@@ -124,21 +124,21 @@ def get_requests(sheetname,need_status):
 
 
 @application.route('/')
-def show_home_mumbai():    
+def show_home_mumbai():
     return render_template('base_mumbai.html')
 
 
 @application.route('/addmumbaimeal')
-def addmumbaimeal():    
+def addmumbaimeal():
     return render_template('addmumbaimeal.html')
 
 @application.route('/contactmumbai')
-def contactmumbai():    
+def contactmumbai():
     return render_template('contactmumbai.html')
 
 
 @application.route('/pendingmumbai')
-def pendingmumbai():    
+def pendingmumbai():
 
     '''
     this function shows pending requests
@@ -148,16 +148,16 @@ def pendingmumbai():
 
     return render_template("pendingmumbai.html", items=list_requests)
 
-    
+
 @application.route('/completedmumbai',methods=["GET"])
 def completedmumbai():
     '''
     this function shows completed requests
-    '''    
+    '''
     list_requests=get_requests(sheetname="Details_People_Mumbai",need_status="Completed")
     print("requests are ",list_requests)
 
-    return render_template("completed.html", items=list_requests)    
+    return render_template("completed.html", items=list_requests)
 
 
 
@@ -169,7 +169,7 @@ def add_pending_request_mumbai():
     # print(request.form.keys)
     name=str(request.form['requestor_name'])
     contact_num=str(request.form['contact_num'])
-    
+
 
     requestor_address=str(request.form['requestor_address'])
     requestor_state=str(request.form['requestor_state'])
@@ -178,11 +178,11 @@ def add_pending_request_mumbai():
     request_status="Pending"
 
     # here get approx location from lat long
-    
+
     volunteer_name=str(request.form['volunteer_name'])
     vol_contact_num=str(request.form['vol_contact_num'])
-    
-    
+
+
 
     num_in_family=str(request.form['fam_size'])
     # rice_qty=str(request.form['rice_qty'])
@@ -190,17 +190,17 @@ def add_pending_request_mumbai():
     # oil_qty=str(request.form['oil_qty'])
     # daal_qty=str(request.form['daal_qty'])
 
-    print(requestor_state,requestor_district)    
+    print(requestor_state,requestor_district)
 
     data_list.append(name)
     data_list.append(contact_num)
 
     # data_list.append(lat)
     # data_list.append(lon)
-    data_list.append(requestor_address)   
-    data_list.append(request_status) 
+    data_list.append(requestor_address)
+    data_list.append(request_status)
 
-    data_list.append(num_in_family) 
+    data_list.append(num_in_family)
 
     # data_list.append(rice_qty)
     # data_list.append(wheat_qty)
@@ -215,7 +215,7 @@ def add_pending_request_mumbai():
 
     data_list.append(requestor_state)
     data_list.append(requestor_district)
-    today = date.today()    
+    today = date.today()
     data_list.append(str(today.strftime("%d/%m/%Y")))
 
 
@@ -223,7 +223,7 @@ def add_pending_request_mumbai():
 
 
 
-    
+
     status = insert_into_gsheet_mumbai(data_list)
 
     # if status:
@@ -260,7 +260,7 @@ def checkoutmumbai():
     mobile_issue=False
     if benificiary_contact=="":
         mobile_issue=True
-    
+
     if not benificiary_contact.isdecimal():
         mobile_issue=True
 
@@ -273,7 +273,7 @@ def checkoutmumbai():
 
 
 
-    
+
 
     if len(list_ids_to_mark_complete)==0:
         return "Please go back and click on the check boxes \
@@ -297,7 +297,7 @@ def checkoutmumbai():
 
 
 
-            
+
 
             list_to_be_fulfilled.append(dict_request)
             # sheet.update_cell(row_count, request_status_index+1, "Completed")
@@ -309,14 +309,14 @@ def checkoutmumbai():
     dict_order={"contributor_number":str(benificiary_contact)}
     dict_order["order"]=list_to_be_fulfilled
     dict_order["contrib_name"]=contrib_name
-    
 
-    # now generate the otp    
+
+    # now generate the otp
     return_str=send_otp_sms(str(benificiary_contact).strip())
     dict_order["return_message"]=return_str
 
-    
-    return render_template("otp_payment_mumbai.html", items=dict_order)    
+
+    return render_template("otp_payment_mumbai.html", items=dict_order)
 
 
 
@@ -334,9 +334,9 @@ def complete_payment_mumbai():
     # amount_pledged=request.form['amount_pledged']
     contrib_name=request.form['contrib_name']
 
-    
 
-    
+
+
 
     # now to check if otp matches with the otp mentioned in the sheet
     # also check for expired otp
@@ -347,9 +347,9 @@ def complete_payment_mumbai():
     print("checked the otp")
 
     if is_valid:
-        
 
-        
+
+
 
 
 
@@ -366,14 +366,14 @@ def complete_payment_mumbai():
 
         # we'll check if the request ids match
         for the_request in list_of_requests[1:]:
-            if int(float(the_request[0])) in list_ids_to_mark_complete:            
+            if int(float(the_request[0])) in list_ids_to_mark_complete:
                 sheet.update_cell(row_count, request_status_index, "Completed")
                 sheet.update_cell(row_count, beneficiary_contact_index,
                  str(benificiary_contact))
                 sheet.update_cell(row_count, beneficiary_name_index,
                  str(contrib_name))
 
-                
+
             row_count+=1
 
 
@@ -392,9 +392,9 @@ def complete_payment_mumbai():
 
 
 if __name__ == "__main__":
-    
-    
-    application.run(debug=True)
+
+
+    application.run(host="0.0.0.0")
 
 
 
