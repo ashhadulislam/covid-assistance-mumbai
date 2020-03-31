@@ -1,0 +1,69 @@
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,600,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  </head>
+    
+  
+  <body>
+    <header class="clearfix blue small-txt">
+      <div class="head-container">
+      <div class=" logo-container">
+          <img class="img-logo" src="{{url_for('static', filename='imgs/logo.png')}}" alt="logo" title="FusionCharts">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('show_home_mumbai') }}">Home</a></li>
+          <li><a href="{{ url_for('addmumbaimeal') }}">Add Needy</a></li>
+          <li><a href="{{ url_for('pendingmumbai') }}">Contribute</a></li>
+          <li><a href="{{ url_for('completedmumbai') }}">Check Completed list</a></li>
+          <li><a href="{{ url_for('contactmumbai') }}">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+    </header>
+    <main>
+      <div class="img-text">
+        <!-- <img src="{{url_for('static', filename='imgs/background.png')}}" alt="Bground" style="width:100%; height: 100vh; position "> -->
+      <div class="txt-up">
+      <h1 style="color: #ffffff"><strong>
+        Thank You for registering a needy person!       
+      </strong>
+      </h1>
+      <div class="txt-up">
+        <h2 style="color: #ffffff">        
+        Thank you for requesting. Our partner NGOs will be taking a look at your request and respond shortly.
+      </h2>
+      <h3 style="color: #ffffff">
+        If you wish to contact us please check our <a href="{{ url_for('contact') }}">contact</a> page.
+      </h3>
+        
+
+      </div>
+        
+      
+    </div>
+      </div>
+      
+    </main>
+    <div class="flex-wrap center white" style="background:transparent">
+      <a href="https://www.facebook.com/Help-for-Hind-109297054048102/"><span class="ico-circle fa fa-facebook-f"></span></a>
+    </div>
+    <footer class="center blue small-txt">
+    Copyrights &copy; 2019 All rights reserved to Help for Hind
+    </footer>
+    <!-- <p><a href="{{ url_for('pending') }}">Check pending</a></p> -->
+    
+  
+  
+  </body>
+</html>

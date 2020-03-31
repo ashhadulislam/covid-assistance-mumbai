@@ -1,0 +1,214 @@
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+	<script language="Javascript" src="{{url_for('static', filename='js/jquery.js')}}"></script>
+
+	<script type="text/JavaScript" src="{{url_for('static', filename='js/state.js')}}"></script>
+
+	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/needstyle.css') }}">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+	
+<!-- <p>Click the button to get your coordinates.</p> -->
+
+<!-- <button onclick="getLocation()">Try It</button> -->
+<body>
+	<p id="demo"></p>
+
+	<!-- <script>
+	var x = document.getElementById("demo");
+
+	function getLocation() {
+	  if (navigator.geolocation) {
+	    navigator.geolocation.getCurrentPosition(showPosition);
+	  } else { 
+	    x.innerHTML = "Geolocation is not supported by this browser.";
+	  }
+	}
+
+	function showPosition(position) {
+	  // x.innerHTML = "Latitude: " + position.coords.latitude + 
+	  // "<br>Longitude: " + position.coords.longitude;
+	  mosque_lat.value=position.coords.latitude;
+	  mosque_lon.value=position.coords.longitude;
+
+	}
+	</script> -->
+
+
+
+	<script>
+    $("#file-picker").change(function(){
+    	
+        
+        var input = document.getElementById('file-picker');
+        for (var i=0; i<input.files.length; i++)
+        {
+        //koala.jpg, koala.JPG substring(index) lastIndexOf('a') koala.1.jpg
+            var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+            file_names=file_names+ext
+            if ((ext == 'jpg') || (ext == 'png') || (ext  == 'jpeg'))
+            {
+                $("#msg").text("Files are supported")
+            }
+            else
+            {
+                $("#msg").text("Files are NOT supported")
+                document.getElementById("file-picker").value ="";
+            }
+        }
+
+        
+    } );
+	</script>
+
+
+	<form action="/load_in_sheet_mumbai" method="post" enctype="multipart/form-data">
+
+
+
+		<div class="container">
+		  <h2>Enter the details of the request</h2>
+		  <div class ="container">
+		  	<p>
+		  		If you are requesting for yourself, please make sure that the Name and Volunteer Name are same.
+		  		Also Contact numbers should be the same.</p>
+		  	<p>
+		  		If you are requesting for someone else, please enter the needy persons details in the first section and your details in the second section.
+		  	</p>
+		  </div>
+		  <!-- <form action="/get_reviews"> -->
+		    <div class="form-group">
+		    	<label>Name:</label>	 
+		      	<input type="text" onfocus="this.value=''" class="form-control" id="requestor_name" placeholder="Requestor Name" name="requestor_name" required>
+	      	</div>
+
+<!-- 	      	<div class="form-group">
+		      	<label>Latitude:</label>	
+		      	<button type="button" onclick="getLocation()">Get Location</button> 
+		      	<input type="text" class="form-control" id="mosque_lat" placeholder="Latitude" name="mosque_lat" >
+	      	</div>
+
+	      	<div class="form-group">
+		      	<label>Longitude:</label>
+		      	<input type="text" class="form-control" id="mosque_lon" placeholder="Longitude" name="mosque_lon" >
+	      	</div>
+ -->
+
+
+
+			<div class="form-group">
+		      	<label>Family size:</label>
+		      	<input type="text"  class="form-control" id="fam_size" placeholder="Number of people in family" name="fam_size">
+		    </div>
+
+	<!-- add the state and city here -->
+
+
+			<div class="form-group">
+		    	<label>State:</label>	 
+		      	<div id="selection">
+			        <select name="requestor_state" id="listBox" onchange='selct_district(this.value)'></select>
+			        <select name="requestor_district" id='secondlist'></select>
+		      </div>
+	      	</div>
+
+	      	
+
+
+
+	      	<div class="form-group">
+		    	<label>Address:</label>	 
+		      	<input type="text" onfocus="this.value=''" class="form-control" id="requestor_address" placeholder="Requestor Address" name="requestor_address" required>
+	      	</div>
+
+
+	      	<div class="form-group">
+		      	<label>Contact Number(10 digit Mobile):</label>
+		      	<input type="text" onfocus="this.value=''" class="form-control" id="contact_num" placeholder="Contact Number" name="contact_num" required>
+		    </div>
+
+		    <hr>
+
+		    <div class="form-group">
+		    	<label>Volunteer Name:</label>	 
+		      	<input type="text" onfocus="this.value=''" class="form-control" id="volunteer_name" placeholder="Volunteer Name" name="volunteer_name">
+	      	</div>
+
+	      	<div class="form-group">
+		      	<label>Volunteer Contact Number(10 digit Mobile):</label>
+		      	<input type="text"  class="form-control" id="vol_contact_num" placeholder="Volunteer Contact Number" name="vol_contact_num">
+		    </div>
+
+
+
+
+<!-- 
+	    	<div class="form-group">
+	    		<label>Rice</label>
+			    <select id="rice_qty" name="rice_qty">
+				  <option value="nil">NIL</option>
+				  <option value="1KG">1KG</option>
+				  <option value="3KG">3KG</option>
+				  <option value="5KG">5KG</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+	    		<label>Wheat</label>
+			    <select id="wheat_qty" name="wheat_qty">
+				  <option value="nil">NIL</option>
+				  <option value="1KG">1KG</option>
+				  <option value="3KG">3KG</option>
+				  <option value="5KG">5KG</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+	    		<label>Oil</label>
+			    <select id="oil_qty" name="oil_qty">
+				  <option value="nil">NIL</option>
+				  <option value="1L">1 Litre</option>
+				  <option value="3L">3 Litres</option>
+				  <option value="5L">5 Litres</option>
+				</select>
+			</div>		    
+
+			<div class="form-group">
+	    		<label>Daal</label>
+			    <select id="daal_qty" name="daal_qty">
+				  <option value="nil">NIL</option>
+				  <option value="1KG">1 Kg</option>
+				  <option value="3KG">3 Kg</option>
+				  <option value="5KG">5 Kg</option>
+				</select>
+			</div>	 -->	    
+
+		    <button type="submit" class="blue btn-center ">Submit</button>
+		</div>
+
+
+	</form>
+
+	
+	<!-- <p><a href="{{ url_for('pending') }}">Check pending</a></p> -->
+
+		<div id="dumdiv" align="center" style=" font-size: 10px;color: #dadada;">
+        <a id="dum" style="padding-right:0px; text-decoration:none;color: green;text-align:center;" href="http://www.hscripts.com">&copy;h</a>
+
+
+</body>
+
+
+</html>

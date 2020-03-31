@@ -1,0 +1,288 @@
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+		<style>
+			table {
+			  font-family: arial, sans-serif;
+			  border-collapse: collapse;
+			  width: 100%;
+			}
+            .Container{
+				margin-top: 15px;
+			}
+			.Row{
+				margin-left: 5px;
+			}
+			td, th {
+			  border: 1px solid #dddddd;
+			  text-align: left;
+			  padding: 8px;
+			}
+
+			tr:nth-child(even) {
+			  background-color: #dddddd;
+			}
+			label{
+				float : left;
+			}
+		</style>		
+
+
+	</head>
+		
+
+	<body>
+
+
+		<div class="container">
+
+
+			<div class="jumbotron jumbotron-fluid container_black_text">
+				
+						<p class="thick">
+							The below families are yet to be helped.					
+							We hope that you will be able to come forward and provide them with meals.							
+						</p>
+						<p class="normal">
+							Please select the families you want to help using the check box, checkout with your mobile number and give the OTP in the next screen to confirm your contribution.
+						</p>									
+				
+			</div>
+		</div>
+		<div class="container">
+			<form action="/checkoutmumbai" method="post" enctype="multipart/form-data">
+				<div class="container">
+
+					<div class="form-group" >
+						<div class ="row"> <label>Name:</label> </div>
+							 
+				      	<div class = "row"><input type="text" onfocus="this.value=''" class="form-control" id="contrib_name" placeholder="Contributor Name" name="contrib_name" style="	width:50%;"></div>
+				    </div>			    
+
+
+					<div class="form-group" >
+						<div class ="row"> <label>Contact Number(10 digit Mobile):</label> </div>
+							 
+				      	<div class = "row"><input type="text" onfocus="this.value=''" class="form-control" id="contact_num" placeholder="Contact Number" name="contact_num" style="	width:50%;"></div>
+				    </div>			    
+
+				    <!-- <div class="form-group" >
+						<div class ="row"> <label>Amount that you would like to pledge(Minimum 500):</label> </div>
+							 
+				      	<div class = "row"><input type="text" onfocus="this.value=''" class="form-control" id="amount_pledged" placeholder="Amount Pledged" name="amount_pledged" style="	width:50%;"></div>
+				    </div>			    
+ -->
+
+
+					
+				</div>
+			
+		</div>
+
+
+
+				
+			
+			
+		
+
+
+		
+			<div class="container">
+
+				 <!-- <h2>Click on the button below see and hide the list of needy people</h2> -->
+				 <!-- <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Click to Toggle</button>				 -->
+				
+				<!-- <div id ="demo" class="collapse"> -->
+				<div class="container">
+					<!-- <div class="container"> -->
+
+						<div style="float:left;">
+							<input type="text" id="myVolunteerInput" onkeyup="myVolunteerFunction()" placeholder="Search by volunteer.." title="Type in a volunteer">
+						</div>
+						<div style="float:left;">
+							<input type="text" id="myDistrictInput" onkeyup="myDistrictFunction()" placeholder="Search by district.." title="Type in a district">
+						</div>
+
+						<!-- <div style="float:left;">
+							<input type="text" id="myStateInput" onkeyup="myStateFunction()" placeholder="Search for state.." title="Type in a state">
+						</div> -->
+	
+
+					</div>
+
+
+
+				<div class='container'>				
+					<table id="pendingTable" class="table">
+					  <tr>
+					  	<th>Request ID</th>
+					    <th>Name</th>
+					    <th>Contact Number</th>			    			    
+					    <th>Requestor State</th>
+					    <th>Requestor District</th>
+					    <th>Address</th>
+					    <th>Request Status</th>
+					    <th>Family Size</th>			    
+					    <th>Volunteer Name</th>
+					    <th>Volunteer Number</th>
+					    <th>Date Of Entry</th>
+					    <th>Place Order</th>
+					  </tr>
+					  
+					  {% for item in items %}		  
+					  <tr>
+					  	<td>{{item.request_id}}</td>
+					  	<td>{{item.name}}</td>
+					  	<td>{{item.contact_num}}</td>		
+					  	<td>{{item.requestor_state}}</td>
+					  	<td>{{item.requestor_district}}</td>	  	
+					  	<td>{{item.requestor_address}}</td>
+					  	<td>{{item.request_status}}</td>
+					  	
+					  	<td>{{item.family_size}}</td>			  	
+					  	<td>{{item.volunteer_name}}</td>
+					  	<td>{{item.vol_contact_num}}</td>
+					  	<td>{{item.date_of_entry}}</td>
+
+
+				  	 	<td>
+				  	 		<input type="checkbox" id="request_number" name={{item.request_id}} value={{item.request_id}}>
+				  	 	</td>
+					  </tr>
+					  {% endfor %}
+						  
+						</table>
+						
+
+						<div class="container">
+							<button type="submit" class="blue btn-center">Check Out To Donation Screen</button>
+
+						</div>
+						
+						
+					
+				</div>
+			</div>
+			
+			<!-- add rest here -->
+			<div class="container_black_text" style = "justify-content: center;margin-top: 10px;">
+
+
+					
+			</div>
+			
+			
+		</form>
+
+
+
+		</div>
+
+
+	
+
+
+
+	  
+			
+
+
+
+		
+
+
+			
+
+		
+
+
+       
+
+
+<!-- 	<script>
+		function myStateFunction() {
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("myStateInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("pendingTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[3];
+		    if (td) {
+		      txtValue = td.textContent || td.innerText;
+		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }       
+		  }
+		}
+		</script>
+ -->
+		<script>
+		function myDistrictFunction() {
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("myDistrictInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("pendingTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[4];
+		    if (td) {
+		      txtValue = td.textContent || td.innerText;
+		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }       
+		  }
+		}
+		</script>
+
+		<script>
+		function myVolunteerFunction() {
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("myVolunteerInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("pendingTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[8];
+		    if (td) {
+		      txtValue = td.textContent || td.innerText;
+		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }       
+		  }
+		}
+		</script>
+
+
+
+	</body>
+
+</html>

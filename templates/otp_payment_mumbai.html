@@ -1,0 +1,153 @@
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+		<style>
+			table {
+			  font-family: arial, sans-serif;
+			  border-collapse: collapse;
+			  width: 100%;
+			}
+            .Container{
+				margin-top: 15px;
+			}
+			.Row{
+				margin-left: 5px;
+			}
+			td, th {
+			  border: 1px solid #dddddd;
+			  text-align: left;
+			  padding: 8px;
+			}
+
+			tr:nth-child(even) {
+			  background-color: #dddddd;
+			}
+			label{
+				float : left;
+			}
+		</style>		
+
+
+	</head>
+		
+
+	<body>
+       <div class='container'>
+		<form action="/complete_payment_mumbai" method="post" enctype="multipart/form-data">
+			<table>
+			  <tr>
+			  	<th>Request ID</th>
+			    <th>Name</th>
+			    <th>Contact Number</th>			    			    
+			    <th>Requestor State</th>
+			    <th>Requestor District</th>
+			    <th>Address</th>
+			    <th>Request Status</th>
+			    <th>Family Size</th>			    
+			    <th>Volunteer Name</th>
+			    <th>Volunteer Number</th>
+			    <th>Date Of Entry</th>
+			    <!-- <th>Place Order</th> -->
+			  <!-- </tr> -->
+			  
+			  {% for item in items.order %}		  
+			  <tr>
+			  	<td>
+			  		<input type="text" id="name"
+			  		name={{item.request_id}} value={{item.request_id}} readonly></td>
+			  	<td>{{item.name}}</td>
+			  	<td>{{item.contact_num}}</td>		
+			  	<td>{{item.requestor_state}}</td>
+			  	<td>{{item.requestor_district}}</td>	  	
+			  	<td>{{item.requestor_address}}</td>
+			  	<td>{{item.request_status}}</td>
+			  	
+			  	<td>{{item.family_size}}</td>			  	
+			  	<td>{{item.volunteer_name}}</td>
+			  	<td>{{item.vol_contact_num}}</td>
+			  	<td>{{item.date_of_entry}}</td>
+		  	 	<!-- <td>
+		  	 		<input type="checkbox" id="request_number" name={{item.request_id}} checked value={{item.request_id}} readonly>
+		  	 	</td> -->
+			  </tr>
+			  {% endfor %}
+			  
+			</table>
+			
+
+			<div class="container_black_text" style = "justify-content: center;margin-top: 10px;">				
+				<div class="form-group" >
+					<div class ="row"> <label>Contributor Nam:</label> </deiv>
+					 
+			      	<div class = "row"><input type="text" class="form-control" id="contrib_name" name="contrib_name" value="{{items.contrib_name}}" style="width:50%;" readonly></div>
+			    </div>			    
+			</div>
+
+
+
+			<div class="container_black_text" style = "justify-content: center;margin-top: 10px;">				
+				<div class="form-group" >
+					<div class ="row"> <label>Contact Number(10 digit Mobile):</label> </div>
+					 
+			      	<div class = "row"><input type="text" class="form-control" id="contact_num" name="contact_num" value="{{items.contributor_number}}" style="width:50%;" readonly></div>
+			    </div>			    
+			</div>
+
+			<!-- <div class="container_black_text" style = "justify-content: center;margin-top: 10px;">
+				<div class="form-group" >
+					<div class ="row"> <label>Amount Pledged:</label> </div>
+					 
+			      	<div class = "row"><input type="text" class="form-control" id="amount_pledged" name="amount_pledged" value="{{items.amount_pledged}}" style="width:50%;" readonly></div>
+			    </div>			    
+			</div>
+ -->
+
+
+
+			<div class="container_black_text" style = "justify-content: center;margin-top: 10px;">
+				<div class="form-group" >									 
+			      	<div class = "row"><textarea class="form-control" id="message" name="return_message" style="width:50%;">{{items.return_message}}</textarea></div>
+			    </div>			    
+			</div>
+
+
+
+			<div class="container_black_text" style = "justify-content: center;margin-top: 10px;">
+				<div class="form-group" >
+					<div class ="row"> <label>Enter OTP:</label> </div>
+					 
+			      	<div class = "row"><input type="text" class="form-control" id="otp_num" name="otp_num" style="width:50%;" ></div>
+			    </div>			    
+			</div>
+
+
+			
+
+			<div class="jumbotron jumbotron-fluid container_black_text">
+				<p class="thick">
+					Please submit the form only when you are sure that you are going to contribute and send meals to the families you have chosen.		
+				</p>
+				
+			</div>
+
+			
+
+
+			<div class="container">
+				<button type="submit" class="blue btn-center">Submit</button>
+			</div>
+		</form>
+	</div>
+
+	</body>
+
+</html>
