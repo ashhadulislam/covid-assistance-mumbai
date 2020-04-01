@@ -143,6 +143,18 @@ def contactmumbai():
     return render_template('contactmumbai.html')
 
 
+@application.route('/intermediate-register-confirmation-mumbai')
+def intermediate_register_confirmation_mumbai():
+    return render_template('intermediate-register-confirmation-mumbai.html')
+
+
+@application.route('/thank-you-mumbai')
+def thank_you_mumbai():
+    return render_template("thank-you-mumbai.html")
+
+
+
+
 @application.route('/pendingmumbai')
 def pendingmumbai():
 
@@ -213,8 +225,8 @@ def add_pending_request_mumbai():
 
     status = insert_into_gsheet_mumbai(data_list)
 
-
-    return render_template('intermediate-register-confirmation-mumbai.html')
+    return redirect(url_for("intermediate_register_confirmation_mumbai"))
+    # return render_template('intermediate-register-confirmation-mumbai.html')
 
 
 
@@ -354,7 +366,8 @@ def complete_payment_mumbai():
 
 
 
-        return render_template("thank-you-mumbai.html")
+        return redirect(url_for("thank_you_mumbai"))
+        # return render_template("thank-you-mumbai.html")
     else:
         return "Some issue with your OTP, please go back and check out again"
 
