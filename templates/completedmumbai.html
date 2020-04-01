@@ -31,19 +31,29 @@
 
 
 	<body>
+
+		<div class="container">
+			<div style="float:left;">
+				<input type="text" id="myBeniNameInput" onkeyup="myBeniNameFunction()" placeholder="Search by beneficiary name.." title="Type in an address">
+			</div>			
+		</div>
+		<div class="container" id="completedTable">
 			<table>
 			  <tr>
 			  	<th>Request ID</th>
 			    <th>Name</th>
-			    <th>Contact Number</th>
-			    <th>State</th>
-			    <th>District</th>
+			    <th>Contact Number</th>			    			    
+			    <th>City</th>
 			    <th>Address</th>
+			    <th>Locality</th>
+			    <th>Landmark</th>
 			    <th>Request Status</th>
-			    <th>Family Size</th>
-			    <th>Requestor Name</th>
-			    <th>Requestor Number</th>
+			    <th>Number Of Needy</th>			    
+			    <th>Request Type</th>			    
+			    <th>Volunteer Name</th>
+			    <th>Volunteer Number</th>
 			    <th>Date Of Entry</th>
+			    <th>Beneficiary Name</th>
 
 			  </tr>
 
@@ -51,23 +61,45 @@
 			  <tr>
 			  	<td>{{item.request_id}}</td>
 			  	<td>{{item.name}}</td>
-			  	<td>{{item.contact_num}}</td>
-			  	<td>{{item.requestor_state}}</td>
-			  	<td>{{item.requestor_district}}</td>
+			  	<td>{{item.contact_num}}</td>		
+			  	<td>{{item.city}}</td>
 			  	<td>{{item.requestor_address}}</td>
+			  	<td>{{item.locality}}</td>
+			  	<td>{{item.landmark}}</td>					  	
 			  	<td>{{item.request_status}}</td>
-
-			  	<td>{{item.family_size}}</td>
+			  	<td>{{item.num_needy}}</td>
+			  	<td>{{item.type_help}}</td>
 			  	<td>{{item.volunteer_name}}</td>
 			  	<td>{{item.vol_contact_num}}</td>
 			  	<td>{{item.date_of_entry}}</td>
+			  	<td>{{item.beneficiary_name}}</td>
 
 			  </tr>
 			  {% endfor %}
 
 			</table>
+		</div>
 
-
+		<script>
+		function myBeniNameFunction() {
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("myBeniNameInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("completedTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[13];
+		    if (td) {
+		      txtValue = td.textContent || td.innerText;
+		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }
+		  }
+		}
+		</script>
 
 
 	</body>

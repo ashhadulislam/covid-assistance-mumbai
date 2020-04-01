@@ -55,8 +55,9 @@ def convert_list_to_dict(the_request):
 
     
     dict_request["date_of_entry"]=the_request[13]
-    dict_request["beneficiary_name"]=the_request[14]
-    dict_request["beneficiary_type"]=the_request[15]
+    # gap for remarks
+    dict_request["beneficiary_name"]=the_request[15]
+    dict_request["beneficiary_type"]=the_request[16]
 
 
     print(dict_request)
