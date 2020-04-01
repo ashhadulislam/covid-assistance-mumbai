@@ -13,13 +13,13 @@
 
 	<script type="text/JavaScript" src="{{url_for('static', filename='js/state.js')}}"></script>
 
-	
+
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/needstyle.css') }}">
 
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
 </head>
-	
+
 <!-- <p>Click the button to get your coordinates.</p> -->
 
 <!-- <button onclick="getLocation()">Try It</button> -->
@@ -32,13 +32,13 @@
 	function getLocation() {
 	  if (navigator.geolocation) {
 	    navigator.geolocation.getCurrentPosition(showPosition);
-	  } else { 
+	  } else {
 	    x.innerHTML = "Geolocation is not supported by this browser.";
 	  }
 	}
 
 	function showPosition(position) {
-	  // x.innerHTML = "Latitude: " + position.coords.latitude + 
+	  // x.innerHTML = "Latitude: " + position.coords.latitude +
 	  // "<br>Longitude: " + position.coords.longitude;
 	  mosque_lat.value=position.coords.latitude;
 	  mosque_lon.value=position.coords.longitude;
@@ -50,8 +50,8 @@
 
 	<script>
     $("#file-picker").change(function(){
-    	
-        
+
+
         var input = document.getElementById('file-picker');
         for (var i=0; i<input.files.length; i++)
         {
@@ -69,7 +69,7 @@
             }
         }
 
-        
+
     } );
 	</script>
 
@@ -82,21 +82,23 @@
 		  <h2>Enter the details of the request</h2>
 		  <div class ="container">
 		  	<p>
-		  		If you are requesting for yourself, please make sure that the Name and Volunteer Name are same.
+		  		If you are requesting for yourself, please make sure that the Name and Requestor Name are same.
 		  		Also Contact numbers should be the same.</p>
 		  	<p>
-		  		If you are requesting for someone else, please enter the needy persons details in the first section and your details in the second section.
+					If you are requesting for someone else,
+					please enter the name of that person  in the 'Name' section and your name in the 'Requestor' section.
+
 		  	</p>
 		  </div>
 		  <!-- <form action="/get_reviews"> -->
 		    <div class="form-group">
-		    	<label>Name:</label>	 
-		      	<input type="text" onfocus="this.value=''" class="form-control" id="requestor_name" placeholder="Requestor Name" name="requestor_name" required>
+		    	<label>Name:</label>
+		      	<input type="text" onfocus="this.value=''" class="form-control" id="requestor_name" placeholder="Name" name="requestor_name" required>
 	      	</div>
 
 <!-- 	      	<div class="form-group">
-		      	<label>Latitude:</label>	
-		      	<button type="button" onclick="getLocation()">Get Location</button> 
+		      	<label>Latitude:</label>
+		      	<button type="button" onclick="getLocation()">Get Location</button>
 		      	<input type="text" class="form-control" id="mosque_lat" placeholder="Latitude" name="mosque_lat" >
 	      	</div>
 
@@ -109,13 +111,13 @@
 
 
 			<div class="form-group">
-		      	<label>Number of needy people:</label>
+		      	<label>Number of people who need help:</label>
 		      	<input type="text"  class="form-control" id="fam_size" placeholder="Number of people under this request" name="num_needy">
 		    </div>
 
 
 		    <div class="form-group">
-		      	<label>Choose the kind of help needed:</label>
+		      	<label>Category of Help needed:</label>
 		      	<select class="form-control" id="type_help" name="type_help">
 				  <option value="meal">Meal</option>
 				  <option value="ration">Ration</option>
@@ -128,7 +130,7 @@
 
 
 			<!-- <div class="form-group">
-		    	<label>State:</label>	 
+		    	<label>State:</label>
 		      	<div id="selection">
 			        <select name="requestor_state" id="listBox" onchange='selct_district(this.value)'></select>
 			        <select name="requestor_district" id='secondlist'></select>
@@ -136,25 +138,25 @@
 	      	</div> -->
 
 	      	<div class="form-group">
-		    	<label>City:</label>	 
-		      	<input type="text" value="Mumbai" class="form-control" id="requestor_city" placeholder="Requestor City" name="requestor_city" required>
+		    	<label>City:</label>
+		      	<input readonly type="text" value="Mumbai" class="form-control" id="requestor_city" placeholder="City" name="requestor_city" required>
 	      	</div>
 
 
 
 	      	<div class="form-group">
-		    	<label>Address:</label>	 
-		      	<input type="text"  class="form-control" id="requestor_address" placeholder="Requestor Address(Please mention Pincode)" name="requestor_address" required>
+		    	<label>Address:</label>
+		      	<input type="text"  class="form-control" id="requestor_address" placeholder="Address(Please mention Pincode)" name="requestor_address" required>
 	      	</div>
 
 	      	<div class="form-group">
-		    	<label>Locality:</label>	 
-		      	<input type="text"  class="form-control" id="requestor_locality" placeholder="Requestor Locality" name="requestor_locality" required>
+		    	<label>Locality:</label>
+		      	<input type="text"  class="form-control" id="requestor_locality" placeholder="Locality" name="requestor_locality" required>
 	      	</div>
 
 	      	<div class="form-group">
-		    	<label>Landmark:</label>	 
-		      	<input type="text"  class="form-control" id="requestor_landmark" placeholder="Requestor Landmark" name="requestor_landmark" required>
+		    	<label>Landmark:</label>
+		      	<input type="text"  class="form-control" id="requestor_landmark" placeholder="Landmark" name="requestor_landmark" required>
 	      	</div>
 
 
@@ -166,19 +168,19 @@
 		    <hr>
 
 		    <div class="form-group">
-		    	<label>Volunteer Name:</label>	 
-		      	<input type="text" onfocus="this.value=''" class="form-control" id="volunteer_name" placeholder="Volunteer Name" name="volunteer_name">
+		    	<label>Requestor Name:</label>
+		      	<input type="text" onfocus="this.value=''" class="form-control" id="volunteer_name" placeholder="Requestor Name" name="volunteer_name">
 	      	</div>
 
 	      	<div class="form-group">
-		      	<label>Volunteer Contact Number(10 digit Mobile):</label>
-		      	<input type="text"  class="form-control" id="vol_contact_num" placeholder="Volunteer Contact Number" name="vol_contact_num">
+		      	<label>Requestor Contact Number(10 digit Mobile):</label>
+		      	<input type="text"  class="form-control" id="vol_contact_num" placeholder="Requestor Contact Number" name="vol_contact_num">
 		    </div>
 
 
 
 
-<!-- 
+<!--
 	    	<div class="form-group">
 	    		<label>Rice</label>
 			    <select id="rice_qty" name="rice_qty">
@@ -207,7 +209,7 @@
 				  <option value="3L">3 Litres</option>
 				  <option value="5L">5 Litres</option>
 				</select>
-			</div>		    
+			</div>
 
 			<div class="form-group">
 	    		<label>Daal</label>
@@ -217,7 +219,7 @@
 				  <option value="3KG">3 Kg</option>
 				  <option value="5KG">5 Kg</option>
 				</select>
-			</div>	 -->	    
+			</div>	 -->
 
 		    <button type="submit" class="blue btn-center ">Submit</button>
 		</div>
@@ -225,8 +227,8 @@
 
 	</form>
 
-	
-	
+
+
 
 		<div id="dumdiv" align="center" style=" font-size: 10px;color: #dadada;">
         <a id="dum" style="padding-right:0px; text-decoration:none;color: green;text-align:center;" href="http://www.hscripts.com">&copy;h</a>

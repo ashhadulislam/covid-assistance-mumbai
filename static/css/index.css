@@ -1,0 +1,134 @@
+body {
+  background: #fafaff;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
+.graphic-main {
+  max-width: 500px;
+}
+
+.page-content {
+  display: flex;
+}
+
+.banner-text {
+  padding: 60px 40px;
+  color: white;
+  text-align: center;
+}
+.banner-text h2 {
+  font-size: 3.5rem;
+  font-weight: 400;
+  font-family: "Playfair Display", serif;
+}
+.banner-text h2 {
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+.banner-text h3 {
+  font-weight: 300;
+  color: #ddd;
+  margin-bottom: 1.1rem;
+}
+.banner-text h4 {
+  font-weight: 400;
+}
+.banner-text h4 a {
+  color: inherit;
+}
+.banner-text h4 a:hover {
+  color: inherit;
+}
+.banner-text p {
+  line-height: 1.5;
+  font-size: 1.1em;
+  font-weight: 300;
+  margin-bottom: 1.4rem;
+}
+
+header {
+  background-image: url("/static/imgs/bg2.jpg");
+  background-size: cover;
+  background-position: center;
+  border-bottom: 2px solid #595959;
+}
+
+.top-bar {
+  padding: 20px 40px;
+  margin-bottom: 0px;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.top-bar .navbar-brand {
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+.btn-lg {
+  font-size: 1.2em;
+  padding: 0.5rem 1.5rem;
+  margin-right: 1rem;
+}
+
+.btn-info {
+  background: #2092ED;
+  border-bottom: 3px solid #7ec0f5;
+}
+.btn-info:hover, .btn-info:focus {
+  background: #2e99ee;
+  border: 1px solid #7ec0f5;
+  border-bottom: 3px solid #7ec0f5;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  font-size: 1.1em;
+}
+
+.main-actions {
+  display: flex;
+}
+
+.main-actions-wrapper {
+  border-bottom: 1px solid #ddd;
+}
+
+.action {
+  width: 50%;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.right-action {
+  border-left: 1px solid #ddd;
+}
+
+.main-action-btn-wrapper {
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.contact-us-message {
+  padding: 40px 0;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.page-footer {
+  text-align: center;
+  color: #555;
+  font-size: 0.9em;
+  padding: 1rem 0;
+}
+
+/*# sourceMappingURL=index.css.map */

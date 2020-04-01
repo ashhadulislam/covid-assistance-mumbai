@@ -50,7 +50,7 @@ nav a{
 
 nav a:hover{
   color:#3f3f3f;
- 
+
 }
 .blue{
   border: 1px solid #486888;
@@ -65,7 +65,7 @@ nav a:hover{
   width:100%;
 }
 .head-container > ul{
-  
+
   list-style-type:none;
   display:inline;
   flex-direction: column;
@@ -91,7 +91,7 @@ nav a:hover{
 .logo{
   column-count: 1;
   width:80%;
-  
+
 }
 .img-logo{
   padding:10px;
@@ -146,7 +146,7 @@ main{
 
 }
 .txt-up{
-  
+
   display: flex;
 }
 .blue-txt{
@@ -175,7 +175,7 @@ strong{
 .item-list >li{
   list-style-type:none;
   display:inline-block;
- 
+
 }
 
 .btn-center{
@@ -232,7 +232,7 @@ strong{
 }
 .card1 span{
   display: block;
-  margin: 5px; 
+  margin: 5px;
   padding: 10px;
 }
 
@@ -257,7 +257,7 @@ strong{
     flex-direction: column;
     flex-wrap: wrap;
   }
-  
+
 }
 
 /* Clearfix */
@@ -288,8 +288,8 @@ strong{
     justify-content: center;
     align-items: center;
     padding:20px 0px;
-    
-  
+
+
 }
 .light{
   background-color: #ddd8d8;
@@ -309,7 +309,7 @@ strong{
 }
 
 .btn{
-  
+
   padding: 10px;
   text-transform: uppercase;
   cursor: pointer;
@@ -328,7 +328,7 @@ strong{
   color:black;
 }
 @media (max-width: 576px){
-  
+
   .section1 {
     width: auto;
     top: 5px;

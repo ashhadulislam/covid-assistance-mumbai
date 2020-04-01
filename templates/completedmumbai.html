@@ -24,50 +24,50 @@
 			tr:nth-child(even) {
 			  background-color: #dddddd;
 			}
-		</style>		
+		</style>
 
 
 	</head>
-		
 
-	<body>		
+
+	<body>
 			<table>
 			  <tr>
 			  	<th>Request ID</th>
 			    <th>Name</th>
-			    <th>Contact Number</th>			    			    
-			    <th>Requestor State</th>
-			    <th>Requestor District</th>
+			    <th>Contact Number</th>
+			    <th>State</th>
+			    <th>District</th>
 			    <th>Address</th>
 			    <th>Request Status</th>
-			    <th>Family Size</th>			    
-			    <th>Volunteer Name</th>
-			    <th>Volunteer Number</th>
+			    <th>Family Size</th>
+			    <th>Requestor Name</th>
+			    <th>Requestor Number</th>
 			    <th>Date Of Entry</th>
-			    
+
 			  </tr>
-			  
-			  {% for item in items %}		  
+
+			  {% for item in items %}
 			  <tr>
 			  	<td>{{item.request_id}}</td>
 			  	<td>{{item.name}}</td>
-			  	<td>{{item.contact_num}}</td>		
+			  	<td>{{item.contact_num}}</td>
 			  	<td>{{item.requestor_state}}</td>
-			  	<td>{{item.requestor_district}}</td>	  	
+			  	<td>{{item.requestor_district}}</td>
 			  	<td>{{item.requestor_address}}</td>
 			  	<td>{{item.request_status}}</td>
-			  	
-			  	<td>{{item.family_size}}</td>			  	
+
+			  	<td>{{item.family_size}}</td>
 			  	<td>{{item.volunteer_name}}</td>
 			  	<td>{{item.vol_contact_num}}</td>
 			  	<td>{{item.date_of_entry}}</td>
-		  	 	
+
 			  </tr>
 			  {% endfor %}
-			  
+
 			</table>
-			
-		
+
+
 
 
 	</body>
