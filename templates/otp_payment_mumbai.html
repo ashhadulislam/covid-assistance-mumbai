@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-		
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
@@ -34,11 +34,11 @@
 			label{
 				float : left;
 			}
-		</style>		
+		</style>
 
 
 	</head>
-		
+
 
 	<body>
        <div class='container'>
@@ -47,32 +47,32 @@
 			  <tr>
 			  	<th>Request ID</th>
 			    <th>Name</th>
-			    <th>Contact Number</th>			    			    
+			    <th>Contact Number</th>
 			    <th>City</th>
 			    <th>Address</th>
 			    <th>Locality</th>
 			    <th>Landmark</th>
 			    <th>Request Status</th>
-			    <th>Number Of Needy</th>			    
-			    <th>Request Type</th>			    
-			    <th>Volunteer Name</th>
-			    <th>Volunteer Number</th>
+			    <th>Number Of Needy</th>
+			    <th>Request Type</th>
+			    <th>Requestor Name</th>
+			    <th>Requestor Number</th>
 			    <th>Date Of Entry</th>
-			    
+
 			    <!-- <th>Place Order</th> -->
 			  <!-- </tr> -->
-			  
-			  {% for item in items.order %}		  
+
+			  {% for item in items.order %}
 			  <tr>
 			  	<td>
 			  		<input type="text" id="name"
 			  		name={{item.request_id}} value={{item.request_id}} readonly></td>
 			  	<td>{{item.name}}</td>
-			  	<td>{{item.contact_num}}</td>		
+			  	<td>{{item.contact_num}}</td>
 			  	<td>{{item.city}}</td>
 			  	<td>{{item.requestor_address}}</td>
 			  	<td>{{item.locality}}</td>
-			  	<td>{{item.landmark}}</td>					  	
+			  	<td>{{item.landmark}}</td>
 			  	<td>{{item.request_status}}</td>
 			  	<td>{{item.num_needy}}</td>
 			  	<td>{{item.type_help}}</td>
@@ -84,54 +84,54 @@
 		  	 	</td> -->
 			  </tr>
 			  {% endfor %}
-			  
-			</table>
-			
 
-			<div class="container_black_text" style = "justify-content: center;margin-top: 10px;">				
+			</table>
+
+
+			<div class="container_black_text" style = "justify-content: center;margin-top: 10px;">
 				<div class="form-group" >
 					<div class ="row"> <label>Contributor Nam:</label> </deiv>
-					 
+
 			      	<div class = "row"><input type="text" class="form-control" id="contrib_name" name="contrib_name" value="{{items.contrib_name}}" style="width:50%;" readonly></div>
-			    </div>	
+			    </div>
 
 
 			    <div class="form-group" >
 					<div class ="row"> <label>Type Of Entity:</label> </div>
-					 
+
 			      	<div class = "row"><input type="text" class="form-control" id="contrib_type" name="contrib_type" value="{{items.contrib_type}}" style="width:50%;" readonly></div>
-			    </div>			    
+			    </div>
 
 
 			</div>
 
-			
 
 
 
-			<div class="container_black_text" style = "justify-content: center;margin-top: 10px;">				
+
+			<div class="container_black_text" style = "justify-content: center;margin-top: 10px;">
 				<div class="form-group" >
 					<div class ="row"> <label>Contact Number(10 digit Mobile):</label> </div>
-					 
+
 			      	<div class = "row"><input type="text" class="form-control" id="contact_num" name="contact_num" value="{{items.contributor_number}}" style="width:50%;" readonly></div>
-			    </div>			    
+			    </div>
 			</div>
 
 			<!-- <div class="container_black_text" style = "justify-content: center;margin-top: 10px;">
 				<div class="form-group" >
 					<div class ="row"> <label>Amount Pledged:</label> </div>
-					 
+
 			      	<div class = "row"><input type="text" class="form-control" id="amount_pledged" name="amount_pledged" value="{{items.amount_pledged}}" style="width:50%;" readonly></div>
-			    </div>			    
+			    </div>
 			</div>
  -->
 
 
 
 			<div class="container_black_text" style = "justify-content: center;margin-top: 10px;">
-				<div class="form-group" >									 
+				<div class="form-group" >
 			      	<div class = "row"><textarea class="form-control" id="message" name="return_message" style="width:50%;">{{items.return_message}}</textarea></div>
-			    </div>			    
+			    </div>
 			</div>
 
 
@@ -139,22 +139,22 @@
 			<div class="container_black_text" style = "justify-content: center;margin-top: 10px;">
 				<div class="form-group" >
 					<div class ="row"> <label>Enter OTP:</label> </div>
-					 
+
 			      	<div class = "row"><input type="text" class="form-control" id="otp_num" name="otp_num" style="width:50%;" ></div>
-			    </div>			    
+			    </div>
 			</div>
-
-
-			
 
 			<div class="jumbotron jumbotron-fluid container_black_text">
 				<p class="thick">
-					Please submit the form only when you are sure that you are going to contribute and send meals to the families you have chosen.		
+					Please submit the form only when you are sure that you are going to contribute and send meals to the families you have chosen.
 				</p>
-				
+				<p class="thick">
+					DISCLAIMER: In order to avoid losing Requestors' information, we suggest noting down the details (name, address, phone number and request) or take a screenshot.
+
+				</p>
 			</div>
 
-			
+
 
 
 			<div class="container">
