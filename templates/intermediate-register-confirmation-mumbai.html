@@ -5,65 +5,68 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,600,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Playfair+Display:wght@400;500;600&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+
   </head>
-    
-  
   <body>
-    <header class="clearfix blue small-txt">
-      <div class="head-container">
-      <div class=" logo-container">
-          <img class="img-logo" src="{{url_for('static', filename='imgs/logo.png')}}" alt="logo" title="FusionCharts">
-      </div>
-      <nav>
-        <ul>
-          <li><a href="{{ url_for('show_home_mumbai') }}">Home</a></li>
-          <li><a href="{{ url_for('addmumbaimeal') }}">Add Needy</a></li>
-          <li><a href="{{ url_for('pendingmumbai') }}">Contribute</a></li>
-          <li><a href="{{ url_for('completedmumbai') }}">Check Completed list</a></li>
-          <li><a href="{{ url_for('contactmumbai') }}">Contact Us</a></li>
-        </ul>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark top-bar">
+        <a class="navbar-brand" href="#">Covid 19 Ahaar Help</a>
+        <div class="navbar-right-menu">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('show_home_mumbai') }}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('addmumbaimeal') }}">Ask For Help</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('pendingmumbai') }}">Contribute</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('completedmumbai') }}">Completed List</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('contactmumbai') }}">Contact Us</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+
       </nav>
-    </div>
-    </header>
-    <main>
-      <div class="img-text">
-        <!-- <img src="{{url_for('static', filename='imgs/background.png')}}" alt="Bground" style="width:100%; height: 100vh; position "> -->
-      <div class="txt-up">
-      <h1 style="color: #ffffff"><strong>
-        Thank You for registering a needy person!       
-      </strong>
-      </h1>
-      <div class="txt-up">
-        <h2 style="color: #ffffff">        
-        Thank you for requesting. Our partner NGOs will be taking a look at your request and respond shortly.
-      </h2>
-      <h3 style="color: #ffffff">
-        If you wish to contact us please check our <a href="{{ url_for('contactmumbai') }}">contact</a> page.
-      </h3>
-        
+
+      <div class="fullbanner">
+          <div class="banner-text">
+            <div class="container">
+              <h3>Thank you for requesting.</h3>
+              <h4>
+                Our partner NGOs will be taking a look at your request and respond shortly.
+              </h4>
+            </div>
+
+          </div>
 
       </div>
-        
-      
+      </header>
+    <div class="main-page">
+        <div class="contact-us-message">
+          <div class="container">
+            <p>
+              If you wish to contact us please check our <a href="{{ url_for('contactmumbai') }}">contact</a> page.
+            </p>
+          </div>
+        </div>
     </div>
-      </div>
-      
-    </main>
-    <div class="flex-wrap center white" style="background:transparent">
-      <a href="https://www.facebook.com/Help-for-Hind-109297054048102/"><span class="ico-circle fa fa-facebook-f"></span></a>
-    </div>
-    <footer class="center blue small-txt">
-    Copyrights &copy; 2019 All rights reserved to Help for Hind
-    </footer>
-    
-    
-  
-  
   </body>
-</html>
+  </html>
