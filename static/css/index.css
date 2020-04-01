@@ -72,6 +72,7 @@ header {
   text-align: center;
   color: white;
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
 }
 @media (min-width: 1024px) {
@@ -167,6 +168,10 @@ header {
   color: #555;
   font-size: 0.9em;
   padding: 1rem 0;
+}
+
+.navbar-right-menu {
+  text-align: right;
 }
 
 /*# sourceMappingURL=index.css.map */

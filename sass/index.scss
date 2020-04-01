@@ -94,6 +94,7 @@ header {
   color: white;
 
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   .navbar-brand {
     margin: 0;
@@ -191,4 +192,7 @@ header {
   font-size: 0.9em;
   padding: 1rem 0;
 
+}
+.navbar-right-menu {
+  text-align: right;
 }
