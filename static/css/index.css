@@ -13,9 +13,15 @@ body {
 }
 
 .banner-text {
-  padding: 60px 40px;
+  padding: 60px 10px;
   color: white;
   text-align: center;
+}
+@media (min-width: 1024px) {
+  .banner-text {
+    padding: 60px 40px;
+    font-size: 1.5rem;
+  }
 }
 .banner-text h2 {
   font-size: 3.5rem;
@@ -33,6 +39,12 @@ body {
 }
 .banner-text h4 {
   font-weight: 400;
+  font-size: 1rem;
+}
+@media (min-width: 1024px) {
+  .banner-text h4 {
+    font-size: 1.5rem;
+  }
 }
 .banner-text h4 a {
   color: inherit;
@@ -55,23 +67,40 @@ header {
 }
 
 .top-bar {
-  padding: 20px 40px;
+  padding: 20px 20px;
   margin-bottom: 0px;
   text-align: center;
   color: white;
   display: flex;
   justify-content: space-between;
 }
+@media (min-width: 1024px) {
+  .top-bar {
+    padding: 20px 40px;
+  }
+}
 .top-bar .navbar-brand {
   margin: 0;
   font-weight: 400;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
+}
+@media (min-width: 1024px) {
+  .top-bar .navbar-brand {
+    font-size: 1.8rem;
+    width: 50%;
+  }
 }
 
 .btn-lg {
   font-size: 1.2em;
   padding: 0.5rem 1.5rem;
   margin-right: 1rem;
+}
+@media (max-width: 1023px) {
+  .btn-lg {
+    display: block;
+    margin-bottom: 1rem;
+  }
 }
 
 .btn-info {
@@ -91,8 +120,10 @@ header {
   font-size: 1.1em;
 }
 
-.main-actions {
-  display: flex;
+@media (min-width: 1024px) {
+  .main-actions {
+    display: flex;
+  }
 }
 
 .main-actions-wrapper {
@@ -100,13 +131,20 @@ header {
 }
 
 .action {
-  width: 50%;
+  width: 100%;
   text-align: center;
   padding: 40px 0;
 }
+@media (min-width: 1024px) {
+  .action {
+    width: 50%;
+  }
+}
 
-.right-action {
-  border-left: 1px solid #ddd;
+@media (min-width: 1024px) {
+  .right-action {
+    border-left: 1px solid #ddd;
+  }
 }
 
 .main-action-btn-wrapper {

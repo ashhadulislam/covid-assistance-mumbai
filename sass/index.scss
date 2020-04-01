@@ -15,7 +15,14 @@ body {
 
 }
 .banner-text {
-  padding: 60px 40px;
+  padding: 60px 10px;
+
+  @media (min-width: 1024px) {
+    padding: 60px 40px;
+
+    font-size: 1.5rem;
+
+  }
   // background: rgba(#fff, 0.8);
   // background-color: rgba(lighten($color: #DD4439, $amount: 0%),0.5);
   color: white;
@@ -39,7 +46,15 @@ body {
   }
   h4 {
     font-weight: 400;
+    font-size: 1rem;
+
+    @media (min-width: 1024px) {
+
+      font-size: 1.5rem;
+
+    }
     a {
+
       color: inherit;
       &:hover {
         color: inherit;
@@ -65,19 +80,32 @@ header {
 
 }
 .top-bar {
-  padding: 20px 40px;
+  padding: 20px 20px;
+  @media (min-width: 1024px) {
 
+    padding: 20px 40px;
+
+
+  }
   // background-color: rgba(lighten($color: #DD4439, $amount: 0%),0.5);
   // border-bottom: 5px solid lighten($color: #DD4439, $amount: 10%);
   margin-bottom: 0px;
   text-align: center;
   color: white;
+
   display: flex;
   justify-content: space-between;
   .navbar-brand {
     margin: 0;
     font-weight: 400;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
+    @media (min-width: 1024px) {
+
+      font-size: 1.8rem;
+      width: 50%;
+
+
+    }
   }
 }
 
@@ -85,6 +113,13 @@ header {
   font-size: 1.2em;
   padding: .5rem 1.5rem;
   margin-right: 1rem;
+  @media (max-width: 1023px) {
+
+    display: block;
+    margin-bottom: 1rem
+
+
+  }
 }
 .btn-info {
   background: #2092ED;
@@ -104,7 +139,13 @@ header {
   font-size: 1.1em;
 }
 .main-actions {
-  display: flex;
+
+  @media (min-width: 1024px) {
+
+    display: flex;
+
+
+  }
 
 
 }
@@ -112,13 +153,23 @@ header {
   border-bottom: 1px solid #ddd;
 }
 .action {
-  width: 50%;
+  width: 100%;
+  @media (min-width: 1024px) {
+
+    width: 50%;
+
+
+  }
   text-align: center;
   padding: 40px 0;
 
 }
 .right-action {
-  border-left: 1px solid #ddd;
+  @media (min-width: 1024px) {
+
+    border-left: 1px solid #ddd;
+
+  }
 }
 .main-action-btn-wrapper {
   margin-top: 2rem;
