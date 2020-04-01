@@ -64,9 +64,7 @@
 
 			  {% for item in items.order %}
 			  <tr>
-			  	<td>
-			  		<input type="text" id="name"
-			  		name={{item.request_id}} value={{item.request_id}} readonly></td>
+			  	<td>{{item.request_id}}</td>
 			  	<td>{{item.name}}</td>
 			  	<td>{{item.contact_num}}</td>
 			  	<td>{{item.city}}</td>
@@ -90,7 +88,7 @@
 
 			<div class="container_black_text" style = "justify-content: center;margin-top: 10px;">
 				<div class="form-group" >
-					<div class ="row"> <label>Contributor Nam:</label> </deiv>
+					<div class ="row"> <label>Contributor Name: </label> </div>
 
 			      	<div class = "row"><input type="text" class="form-control" id="contrib_name" name="contrib_name" value="{{items.contrib_name}}" style="width:50%;" readonly></div>
 			    </div>
@@ -129,9 +127,7 @@
 
 
 			<div class="container_black_text" style = "justify-content: center;margin-top: 10px;">
-				<div class="form-group" >
-			      	<div class = "row"><textarea class="form-control" id="message" name="return_message" style="width:50%;">{{items.return_message}}</textarea></div>
-			    </div>
+			      	<p id="message" name="return_message" style="width:50%; color:green">{{items.return_message}}</p>
 			</div>
 
 
