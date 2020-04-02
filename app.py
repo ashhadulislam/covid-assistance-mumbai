@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request,send_from_directory, jsonify, url_for
 from flask import redirect
-import ipdb
 # import gspread
 # from oauth2client.service_account import ServiceAccountCredentials
 
@@ -309,7 +308,6 @@ def checkoutmumbai():
 
 @application.route('/complete_payment_mumbai',methods=["POST"])
 def complete_payment_mumbai():
-    ipdb.set_trace()
     list_ids_to_mark_complete=[]
     print(request.form.keys)
     for key,val in request.form.items():
