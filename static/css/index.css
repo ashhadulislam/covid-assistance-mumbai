@@ -230,4 +230,15 @@ header.no-bg {
   }
 }
 
+.subbanner {
+  margin-top: 1rem;
+}
+.subbanner h3 {
+  text-align: center;
+  font-size: 1.2rem;
+}
+.subbanner li {
+  margin-bottom: 0.75rem;
+}
+
 /*# sourceMappingURL=index.css.map */
