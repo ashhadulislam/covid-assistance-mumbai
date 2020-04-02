@@ -1,0 +1,112 @@
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+		<style>
+			table {
+			  font-family: arial, sans-serif;
+			  border-collapse: collapse;
+			  width: 100%;
+			}
+
+			td, th {
+			  border: 1px solid #dddddd;
+			  text-align: left;
+			  padding: 8px;
+			}
+
+			tr:nth-child(even) {
+			  background-color: #dddddd;
+			}
+		</style>
+
+
+	</head>
+
+
+	<body>
+
+		<div class="search-fields">
+			<div >
+				<input class="form-control" type="text" id="categorySearch" onkeyup="myBeniNameFunction()" placeholder="Search by help category.." title="Type in an address">
+			</div>
+			<div >
+				<input class="form-control" type="text" id="targetSearch" onkeyup="targetSearchFunction()" placeholder="Search by target areas.." title="Type in an address">
+			</div>			
+		</div>
+		<div class="container" id="completedTable">
+			<table>
+			  <tr>
+			  	<th>NGO Name</th>
+			    <th>Category of Help</th>
+			    <th>City</th>
+			    <th>Target Areas</th>
+			    <th>Contact Number</th>
+			    <th>Bank Details</th>
+
+			  </tr>
+
+			  {% for item in items %}
+			  <tr>
+			  	<td>{{item.ngo_name}}</td>
+			  	<td>{{item.cat_help}}</td>
+			  	<td>{{item.city}}</td>		
+			  	<td>{{item.target_area}}</td>
+			  	<td>{{item.contact}}</td>
+			  	<td>{{item.bank_detail}}</td>
+
+			  </tr>
+			  {% endfor %}
+
+			</table>
+		</div>
+
+		<script>
+		function myBeniNameFunction() {
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("categorySearch");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("completedTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[1];
+		    if (td) {
+		      txtValue = td.textContent || td.innerText;
+		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }
+		  }
+		}
+		function targetSearchFunction() {
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("targetSearch");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("completedTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[3];
+		    if (td) {
+		      txtValue = td.textContent || td.innerText;
+		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }
+		  }
+		}
+		</script>
+
+
+	</body>
+
+</html>

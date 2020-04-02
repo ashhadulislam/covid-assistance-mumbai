@@ -64,8 +64,23 @@ def convert_list_to_dict(the_request):
     return dict_request
 
 
+def convert_ngoItem_to_dict(the_request):
+    dict_request={}
+    dict_request["ngo_name"]=the_request[0]
 
-def get_requests(sheetname,need_status):
+    dict_request["cat_help"]=the_request[1]
+    dict_request["city"]=the_request[2]
+    # dict_request["lat"]=int(float(the_request[3]))
+    # dict_request["lon"]=int(float(the_request[4]))
+    dict_request["target_area"]=the_request[3]
+    dict_request["contact"]=the_request[4]
+    dict_request["bank_detail"]=the_request[5]
+
+    print(dict_request)
+    return dict_request
+
+
+def get_requests(sheetname,sheetType,need_status):
     '''
     insert into the google sheet in the order
     name, contact_num,lat, lon, address,
@@ -85,9 +100,13 @@ def get_requests(sheetname,need_status):
     print("number of rows ",len(sheet.get_all_values()))
     print("number of columns ",len(sheet.get_all_values()[0]))
 
-
     list_requests=[]
 
+    if sheetType=="ngo":
+        for req in list_of_requests[1:]:
+            list_requests.append(convert_ngoItem_to_dict(req))
+        return list_requests
+            
     # skip the first request since it is heading
     for the_request in list_of_requests[1:]:
         print("status is ",the_request[request_status_index-1],need_status)
@@ -161,7 +180,7 @@ def pendingmumbai():
     '''
     this function shows pending requests
     '''
-    list_requests=get_requests(sheetname="Details_People_Mumbai",need_status="Pending")
+    list_requests=get_requests(sheetname="Details_People_Mumbai",sheetType="common",need_status="Pending")
     print("requests are ",list_requests)
 
     return render_template("pendingmumbai.html", items=list_requests)
@@ -172,10 +191,21 @@ def completedmumbai():
     '''
     this function shows completed requests
     '''
-    list_requests=get_requests(sheetname="Details_People_Mumbai",need_status="Completed")
+    list_requests=get_requests(sheetname="Details_People_Mumbai",sheetType="common",need_status="Completed")
     print("requests are ",list_requests)
 
     return render_template("completedmumbai.html", items=list_requests)
+
+@application.route('/ngomumbai',methods=["GET"])
+def ngomumbai():
+    '''
+    this function shows completed requests
+    '''
+    # list_requests=get_requests(sheetname="NGO_Donation",need_status="Verified")
+    list_requests=get_requests(sheetname="NGO_Donation",sheetType="ngo",need_status="Verified")
+    print("requests are ",list_requests)
+
+    return render_template("ngomumbai.html", items=list_requests)
 
 
 
