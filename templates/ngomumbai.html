@@ -1,71 +1,107 @@
 
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,600,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Playfair+Display:wght@400;500;600&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
 
-		<style>
-			table {
-			  font-family: arial, sans-serif;
-			  border-collapse: collapse;
-			  width: 100%;
-			}
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark top-bar">
+        <a class="navbar-brand" href="#">Covid 19 Ahaar Help</a>
+        <div class="navbar-right-menu">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('show_home_mumbai') }}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('addmumbaimeal') }}">Ask For Help</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('pendingmumbai') }}">Contribute</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('completedmumbai') }}">Completed List</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('ngomumbai') }}">Donate to NGO</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('contactmumbai') }}">Contact Us</a>
+              </li>
 
-			td, th {
-			  border: 1px solid #dddddd;
-			  text-align: left;
-			  padding: 8px;
-			}
+            </ul>
+          </div>
+        </div>
 
-			tr:nth-child(even) {
-			  background-color: #dddddd;
-			}
-		</style>
+      </nav>
 
+      <div class="fullbanner">
+          <div class="banner-text">
+            <div class="container">
+              <h3 class="sans">NGOs</h3>
+            </div>
 
-	</head>
+          </div>
 
-
-	<body>
-
-		<div class="search-fields">
-			<div >
-				<input class="form-control" type="text" id="categorySearch" onkeyup="myBeniNameFunction()" placeholder="Search by help category.." title="Type in an address">
+      </div>
+      </header>
+    <div class="main-page ngolist">
+			<div class="container">
+				<div class="search-fields">
+					<div >
+						<input class="form-control" type="text" id="categorySearch" onkeyup="myBeniNameFunction()" placeholder="Search by help category.." title="Type in an address">
+					</div>
+					<div >
+						<input class="form-control" type="text" id="targetSearch" onkeyup="targetSearchFunction()" placeholder="Search by target areas.." title="Type in an address">
+					</div>
+				</div>
 			</div>
-			<div >
-				<input class="form-control" type="text" id="targetSearch" onkeyup="targetSearchFunction()" placeholder="Search by target areas.." title="Type in an address">
-			</div>			
-		</div>
-		<div class="container" id="completedTable">
-			<table>
-			  <tr>
-			  	<th>NGO Name</th>
-			    <th>Category of Help</th>
-			    <th>City</th>
-			    <th>Target Areas</th>
-			    <th>Contact Number</th>
-			    <th>Bank Details</th>
+			<div class="container">
+				<div class="table-responsive" id="completedTable">
+					<table class="table table-striped">
+						<tbody>
 
-			  </tr>
 
-			  {% for item in items %}
-			  <tr>
-			  	<td>{{item.ngo_name}}</td>
-			  	<td>{{item.cat_help}}</td>
-			  	<td>{{item.city}}</td>		
-			  	<td>{{item.target_area}}</td>
-			  	<td>{{item.contact}}</td>
-			  	<td>{{item.bank_detail}}</td>
+						<tr>
+							<th>NGO Name</th>
+							<th>Category of Help</th>
+							<th>City</th>
+							<th>Target Areas</th>
+							<th>Contact Number</th>
+							<th>Bank Details</th>
 
-			  </tr>
-			  {% endfor %}
+						</tr>
 
-			</table>
-		</div>
+						{% for item in items %}
+						<tr>
+							<td>{{item.ngo_name}}</td>
+							<td>{{item.cat_help}}</td>
+							<td>{{item.city}}</td>
+							<td>{{item.target_area}}</td>
+							<td>{{item.contact}}</td>
+							<td>{{item.bank_detail}}</td>
+
+						</tr>
+						{% endfor %}
+					</tbody>
+					</table>
+				</div>
+			</div>
+
 
 		<script>
 		function myBeniNameFunction() {
@@ -107,6 +143,15 @@
 		</script>
 
 
-	</body>
-
-</html>
+		</div>
+		<hr>
+		<div class="p-4">
+			<p>
+				If you represent an NGO and want to add the NGO to the list above please please contat us by clicking on button below:
+			</p>
+			<a class="btn btn-info" href="https://docs.google.com/forms/d/1CUe75VXjfOcezRQuu7qpjguVbz22Gzg4nbj2B1Yn5jI/viewform">
+				Register NGO with Us
+			</a>
+		</div>
+  </body>
+  </html>

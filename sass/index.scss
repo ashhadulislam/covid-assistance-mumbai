@@ -23,14 +23,16 @@ body {
     font-size: 1.5rem;
 
   }
-  // background: rgba(#fff, 0.8);
-  // background-color: rgba(lighten($color: #DD4439, $amount: 0%),0.5);
+
   color: white;
   text-align: center;
   h2 {
     font-size: 3.5rem;
     font-weight: 400;
     font-family: 'Playfair Display', serif;
+    &.sans {
+      font-family: Montserrat, Arial, Helvetica, sans-serif;
+    }
   }
 
   h2 {
@@ -261,4 +263,8 @@ header {
   li {
     margin-bottom: 0.75rem;
   }
+}
+
+.ngolist {
+  margin-top: 1rem;
 }

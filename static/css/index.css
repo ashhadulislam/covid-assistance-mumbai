@@ -28,6 +28,9 @@ body {
   font-weight: 400;
   font-family: "Playfair Display", serif;
 }
+.banner-text h2.sans {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
 .banner-text h2 {
   font-weight: 300;
   margin-bottom: 1.2rem;
@@ -239,6 +242,10 @@ header.no-bg {
 }
 .subbanner li {
   margin-bottom: 0.75rem;
+}
+
+.ngolist {
+  margin-top: 1rem;
 }
 
 /*# sourceMappingURL=index.css.map */
