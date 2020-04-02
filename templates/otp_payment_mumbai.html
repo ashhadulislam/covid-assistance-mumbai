@@ -78,7 +78,8 @@
 
 							{% for item in items.order %}
 							<tr>
-								<td>{{item.request_id}}</td>
+								<td><input class="form-control" type="text" id="name"
+									name="id" value={{item.request_id}} readonly></td>
 								<td>{{item.name}}</td>
 								<td>{{item.contact_num}}</td>
 								<td>{{item.city}}</td>
