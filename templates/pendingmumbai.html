@@ -118,10 +118,12 @@
 				  </div>
 
 				    <div class="form-group">
-				      	<label>Are you an NGO or an Individual:</label>
+				      	<label>Are you an NGO, a group or an individual:</label>
 				      	<select class="form-control" id="contrib_type" name="contrib_type">
 						  <option value="NGO">NGO</option>
-						  <option value="Individual">Individual</option>
+							<option value="Individual">Individual</option>
+						  <option value="Group">Group</option>
+
 					  	</select>
 		    		</div>
 
@@ -170,15 +172,15 @@
 							<tr>
 
 								<th>Take this Request</th>
-								<th>ID</th>
+
 								<th>Name</th>
 								<th>Contact Number</th>
+								<th>Number Of Needy</th>
 								<th>City</th>
 								<th>Address</th>
 								<th>Locality</th>
 								<th>Landmark</th>
 								<th>Request Status</th>
-								<th>Number Of Needy</th>
 								<th>Request Type</th>
 								<th>Requestor Name</th>
 								<th>Requestor Number</th>
@@ -191,15 +193,15 @@
 								<td>
 									<input type="checkbox" id="request_number" name={{item.request_id}} value={{item.request_id}}>
 								</td>
-								<td>{{item.request_id}}</td>
+
 								<td>{{item.name}}</td>
 								<td>{{item.contact_num}}</td>
+								<td>{{item.num_needy}}</td>
 								<td>{{item.city}}</td>
 								<td>{{item.requestor_address}}</td>
 								<td>{{item.locality}}</td>
 								<td>{{item.landmark}}</td>
 								<td>{{item.request_status}}</td>
-								<td>{{item.num_needy}}</td>
 								<td>{{item.type_help}}</td>
 								<td>{{item.volunteer_name}}</td>
 								<td>{{item.vol_contact_num}}</td>
@@ -220,7 +222,9 @@
 
 
 						<div class="mb-4 pb-4">
-							<button type="submit" class=" pendingbutton blue btn-center mt-0 blue btn-lg btn-center btn btn-info">Check Out To Donation Screen</button>
+							<button type="submit" class=" pendingbutton blue btn-center mt-0 blue btn-lg btn-center btn btn-info">
+								Confirm the contribution
+							</button>
 
 						</div>
 

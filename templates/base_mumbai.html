@@ -1,6 +1,5 @@
 
 <html>
-
 <head>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,7 +54,6 @@
 
             <p>
               Unlike us, they cannot afford a lockdown, they could not stock up the essentials.
-              <br />How can you help?
             </p>
           </div>
 
@@ -63,6 +61,21 @@
 
     </div>
     </header>
+    <div class="subbanner">
+      <div class="container">
+        <h3>How can you help?</h3>
+        <ol>
+          <li>
+            Identify people who are in need, like your domestic help, security guard, old, sick, or specially abled neighbours and request help from organisations or individuals.
+            Use the  <a href="{{ url_for('addmumbaimeal') }}">NEED HELP</a> button to request help for them
+          </li>
+          <li>
+            If you have the resources to provide meals or ration to meet the help requested, kindly use the <a href="{{ url_for('pendingmumbai') }}">CONTRIBUTE</a> option to help
+          </li>
+        </ol>
+      </div>
+      <hr>
+    </div>
   <div class="main-page">
       <div class="main-actions-wrapper">
         <div class="container-fluid">
@@ -84,7 +97,7 @@
             <div class="right-action action">
               <h2>Contribute</h2>
               <p>
-                If you are an NGO, a group or an individual who wishes to help with meals or raashan, <br />please click on button below
+                If you are an NGO, a group or an individual who wishes to help with meals or raashan, please click on button below
               </p>
               <p class="main-action-btn-wrapper">
                 <a href="{{ url_for('pendingmumbai') }}" class="btn btn-info btn-lg">Contribute</a>
