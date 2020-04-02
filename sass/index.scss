@@ -1,5 +1,5 @@
 body {
-  background: rgb(250,250,255);
+  background: rgb(255,255,255);
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
 
@@ -77,10 +77,15 @@ header {
   background-size: cover;
   background-position: center;
   border-bottom: 2px solid lighten($color: #333, $amount: 15%);
+  &.no-bg {
+    background-image: none;
+    background: #222;
+  }
 
 }
 .top-bar {
   padding: 20px 20px;
+  flex-wrap: nowrap;
   @media (min-width: 1024px) {
 
     padding: 20px 40px;
@@ -96,10 +101,13 @@ header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  .nav-link {
+    white-space: nowrap;
+  }
   .navbar-brand {
     margin: 0;
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1rem;
     @media (min-width: 1024px) {
 
       font-size: 1.8rem;
@@ -195,4 +203,48 @@ header {
 }
 .navbar-right-menu {
   text-align: right;
+}
+.helplist {
+  padding-left: 20px;
+
+  > li {
+    margin-bottom: 0.5rem;
+  }
+  ul  {
+    padding-left: 15px;
+    list-style-type: disc;
+  }
+
+}
+.search-fields {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+
+  >div {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    @media (min-width: 1024px) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.checkout-form {
+
+  .form-control {
+    max-width: 400px;
+
+  }
+}
+.table-responsive {
+  overflow-x: scroll;
+  @media (min-width: 1024px) {
+    overflow-x: auto;
+  }
+}
+.pendingbutton {
+  @media (max-width: 1023px) {
+    font-size: 1.1rem;;
+  }
 }

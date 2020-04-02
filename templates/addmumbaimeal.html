@@ -1,51 +1,54 @@
 
 <html>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,600,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Playfair+Display:wght@400;500;600&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
 
+  </head>
+  <body>
+    <header class="no-bg">
+      <nav class="navbar navbar-expand-lg navbar-dark top-bar">
+        <a class="navbar-brand" href="#">Covid 19 Ahaar Help</a>
+        <div class="navbar-right-menu">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('show_home_mumbai') }}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('addmumbaimeal') }}">Ask For Help</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('pendingmumbai') }}">Contribute</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('completedmumbai') }}">Completed List</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('contactmumbai') }}">Contact Us</a>
+              </li>
 
-	<script language="Javascript" src="{{url_for('static', filename='js/jquery.js')}}"></script>
+            </ul>
+          </div>
+        </div>
 
-	<script type="text/JavaScript" src="{{url_for('static', filename='js/state.js')}}"></script>
+      </nav>
+      </header>
+    <div class="main-page">
 
-
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/needstyle.css') }}">
-
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-
-</head>
-
-<!-- <p>Click the button to get your coordinates.</p> -->
-
-<!-- <button onclick="getLocation()">Try It</button> -->
-<body>
 	<p id="demo"></p>
-
-	<!-- <script>
-	var x = document.getElementById("demo");
-
-	function getLocation() {
-	  if (navigator.geolocation) {
-	    navigator.geolocation.getCurrentPosition(showPosition);
-	  } else {
-	    x.innerHTML = "Geolocation is not supported by this browser.";
-	  }
-	}
-
-	function showPosition(position) {
-	  // x.innerHTML = "Latitude: " + position.coords.latitude +
-	  // "<br>Longitude: " + position.coords.longitude;
-	  mosque_lat.value=position.coords.latitude;
-	  mosque_lon.value=position.coords.longitude;
-
-	}
-	</script> -->
-
 
 
 	<script>
@@ -79,34 +82,43 @@
 
 
 		<div class="container">
-		  <h2>Enter the details of the request</h2>
-		  <div class ="container">
-		  	<p>
-		  		If you are requesting for yourself, please make sure that the Name and Requestor Name are same.
-		  		Also Contact numbers should be the same.</p>
-		  	<p>
-					If you are requesting for someone else,
-					please enter the name of that person  in the 'Name' section and your name in the 'Requestor' section.
+		  <h2 class="mb-4 mt-4">How to request for help?</h2>
 
-		  	</p>
-		  </div>
+				<ol class="helplist">
+					<li>
+						Identify people in need of help. You may check on your domestic help, security guards, sanitary workers, their families, old, sick, or specially-abled neighbours.
+					</li>
+					<li>
+						Enter the details of such persons or families in the form given below.
+						<ul>
+							<li>
+								Specify their names in the given field.
+							</li>
+							<li>
+								Specify the number of people and the category of help required (meal/raashan) in the given field.
+							</li>
+							<li>
+								Please mention the locality, landmark and exact address with pincode in the 'Address' field.
+							</li>
+							<li>
+								Please be sure to mention their phone number to allow helpers to reach them.
+							</li>
+						</ul>
+					</li>
+					<li>
+						Add your name and contact details in the 'Requester' section.
+					</li>
+					<li>
+						If you are in need of help requesting for yourself, please enter your details in both 'Name' and 'Requester Name' fields and make sure that the contact numbers are same too.
+					</li>
+
+				</ol>
+				<hr />
 		  <!-- <form action="/get_reviews"> -->
 		    <div class="form-group">
 		    	<label>Name:</label>
 		      	<input type="text" onfocus="this.value=''" class="form-control" id="requestor_name" placeholder="Name" name="requestor_name" required>
 	      	</div>
-
-<!-- 	      	<div class="form-group">
-		      	<label>Latitude:</label>
-		      	<button type="button" onclick="getLocation()">Get Location</button>
-		      	<input type="text" class="form-control" id="mosque_lat" placeholder="Latitude" name="mosque_lat" >
-	      	</div>
-
-	      	<div class="form-group">
-		      	<label>Longitude:</label>
-		      	<input type="text" class="form-control" id="mosque_lon" placeholder="Longitude" name="mosque_lon" >
-	      	</div>
- -->
 
 
 
@@ -123,19 +135,6 @@
 				  <option value="ration">Ration</option>
 			  	</select>
 		    </div>
-
-
-
-	<!-- add the state and city here -->
-
-
-			<!-- <div class="form-group">
-		    	<label>State:</label>
-		      	<div id="selection">
-			        <select name="requestor_state" id="listBox" onchange='selct_district(this.value)'></select>
-			        <select name="requestor_district" id='secondlist'></select>
-		      </div>
-	      	</div> -->
 
 	      	<div class="form-group">
 		    	<label>City:</label>
@@ -178,50 +177,7 @@
 		    </div>
 
 
-
-
-<!--
-	    	<div class="form-group">
-	    		<label>Rice</label>
-			    <select id="rice_qty" name="rice_qty">
-				  <option value="nil">NIL</option>
-				  <option value="1KG">1KG</option>
-				  <option value="3KG">3KG</option>
-				  <option value="5KG">5KG</option>
-				</select>
-			</div>
-
-			<div class="form-group">
-	    		<label>Wheat</label>
-			    <select id="wheat_qty" name="wheat_qty">
-				  <option value="nil">NIL</option>
-				  <option value="1KG">1KG</option>
-				  <option value="3KG">3KG</option>
-				  <option value="5KG">5KG</option>
-				</select>
-			</div>
-
-			<div class="form-group">
-	    		<label>Oil</label>
-			    <select id="oil_qty" name="oil_qty">
-				  <option value="nil">NIL</option>
-				  <option value="1L">1 Litre</option>
-				  <option value="3L">3 Litres</option>
-				  <option value="5L">5 Litres</option>
-				</select>
-			</div>
-
-			<div class="form-group">
-	    		<label>Daal</label>
-			    <select id="daal_qty" name="daal_qty">
-				  <option value="nil">NIL</option>
-				  <option value="1KG">1 Kg</option>
-				  <option value="3KG">3 Kg</option>
-				  <option value="5KG">5 Kg</option>
-				</select>
-			</div>	 -->
-
-		    <button type="submit" class="blue btn-center ">Submit</button>
+		    <button type="submit" class="mt-4 blue btn-lg btn-center btn btn-info ">Submit</button>
 		</div>
 
 
@@ -229,12 +185,6 @@
 
 
 
-
-		<div id="dumdiv" align="center" style=" font-size: 10px;color: #dadada;">
-        <a id="dum" style="padding-right:0px; text-decoration:none;color: green;text-align:center;" href="http://www.hscripts.com">&copy;h</a>
-
-
-</body>
-
-
-</html>
+    </div>
+  </body>
+  </html>
