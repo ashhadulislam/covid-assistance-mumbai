@@ -177,6 +177,9 @@ header {
   @media (min-width: 1024px) {
 
     border-left: 1px solid #ddd;
+    p {
+      padding: 0 1rem;
+    }
 
   }
 }
