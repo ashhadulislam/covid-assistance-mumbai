@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request,send_from_directory, jsonify, url_for
 from flask import redirect
+from firebase_admin import credentials, firestore, initialize_app
 # import gspread
 # from oauth2client.service_account import ServiceAccountCredentials
 
@@ -19,6 +20,12 @@ from datetime import date
 
 
 application = Flask(__name__)
+
+# Initialize Firestore DB
+cred = credentials.Certificate('key.json')
+default_app = initialize_app(cred)
+db = firestore.client()
+todo_ref = db.collection('todos')
 
 # column number where status is mentioned in the sheet
 request_status_index=8
